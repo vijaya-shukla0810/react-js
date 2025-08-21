@@ -37,6 +37,8 @@
 
 .filter {
   padding: 16px 0;
+  display: flex;
+  gap: 8px;
 }
 
 .filter-btn {
@@ -45,5 +47,51 @@
   border: none;
   font-weight: 300;
   font-size: 14px;
+  cursor: pointer;
+}
+
+.search > input{
+  padding: 8px;
+  width: 250px;
+}
+
+.search-btn {
+  padding: 8px;
+  margin-left: 4px;
+}
+
+.shimmer-card {
+  height: 300px;
+  width: 200px;
+  padding: 20px;
+  box-shadow: 5px 10px 18px #888888;
+}
+.shimmer-card-img {
+  background-color: lightgray;
+  height: 200px;
+  width: 200px;
+}
+
+.shimmer-card-text {
+  background-color: lightgray;
+  height: 20px;
+  width: 120px;
+  margin: 12px 0;
+}
+
+.res-loader-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.login {
+  width: 80px;
+  height: fit-content;
+  border-radius: 4px;
+  background-color: beige;
+  border: none;
+  padding: 4px;
   cursor: pointer;
 }

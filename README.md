@@ -52,7 +52,8 @@
  {Normal Js utility functions}
 - useState() - is a utility function - used to create state variable
 - useEffect()
-- whenever a state variable changes react will re render the component
+- whenever a state variable changes react will re render the component - !IMPORTANT
+- whenever state variable update, react triggers a reconciliation cycle (re-renders the component with new data)
 
 # React algo
 -> React uses reconciliation algorithm (also known as react fibre)
@@ -61,3 +62,15 @@
  -> React fibre - https://github.com/acdlite/react-fiber-architecture
 -> Why react is fast?
     -> React is doing efficient DOM manipulation using virtual DOM(diff algorithm)
+
+
+# api call in react
+-> uses useEffect hook
+-> useEffect(callback, dependency array)
+-> when will this useEffect callback function be called - after the component renders
+
+
+
+# Try out:
+-> debounce search
+-> pagination
