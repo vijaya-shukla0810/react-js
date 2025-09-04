@@ -1,12 +1,14 @@
 import RestaurantCard from './RestaurantCard'
 import restaurants from '../utils/mockData'
 import { useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import LoadingRestaurantsList from './LoadingRestaurantsList';
 
 const Body = () => {
   const [listOfRes, setListOfRes] = useState([]);
   const [filteredListOfRes, setFilteredListOfRes] = useState([]);
   const [searchInput, setSearchInput] =  useState("");
+  const navigate = useNavigate();
 
   const filterOutTopRatedRes = () => {
     const filteredList = listOfRes.filter(item => item.info.avgRating > 4.3);
@@ -30,6 +32,10 @@ const Body = () => {
     const json = await data.json();
     setListOfRes(json)
     setFilteredListOfRes(json)
+  }
+
+  const goToResMenu = () => {
+    navigate('/restaurant/1234')
   }
 
   if(!filteredListOfRes.length && !searchInput.length) {
@@ -71,10 +77,13 @@ const Body = () => {
           {
             !filteredListOfRes.length && searchInput.length ? (<div>No search results</div>):
             (filteredListOfRes.map(restaurant => {
-              return <RestaurantCard
-                resData={restaurant}
-                key={restaurant.id}
-              />
+              return (
+                <RestaurantCard
+                  resData={restaurant}
+                  key={restaurant.id}
+                  onClick={() => goToResMenu()}
+                />
+              )
             }))
           }
         </div>

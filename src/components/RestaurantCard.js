@@ -14,8 +14,11 @@ const RestaurantCard = (props) => {
   } = resData
 
   return (
-    <div className="res-card" style={{
-      backgroundColor: "beige"
+    <div className="res-card"
+    onClick={props.onClick}
+    style={{
+      backgroundColor: "beige",
+      cursor: "pointer"
     }}>
       <img
         src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/6/9/7a7eeb27-4319-4670-a64e-0f214d6c92e8_952468.JPG"
