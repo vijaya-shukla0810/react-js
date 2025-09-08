@@ -5,14 +5,13 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const [loginLogoutText, setLoginLogoutText] = useState("Login")
   
-console.log('header loaded')
   const clickLoginLogout = () => {
     setLoginLogoutText(loginLogoutText === "Login" ? "Logout": "Login")
   }
 
   useEffect(() => {
-    console.log('use effect of header called')
   },[loginLogoutText]);
+
   return (
     <div className="header">
       <div className="logo-container">

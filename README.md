@@ -101,6 +101,83 @@ Case 3: we have something in dependency array - useEffect(callback, [someVar])
 -> and can use Link
 -> if want to use something like router.push(in vue) react-router-dom gives navigate from react-router-dom can be used in js -> navigate(path)
 
+
+# Class based components
+-> Like functional component is nothing but a function in javascript, similarily class based components are nothing but classes in javascript
+-> Example: If i want to create UserClass component using class based component
+-> class UserClass extends React.Component {
+    render () {
+        return
+        // returns piece of jsx which will be rendered in UI
+    }
+}
+
+-> extends React.Component - this will make react know that this is a class based component
+-> What is React.Component? This is a class given by react which is inheriting some properties to UserClass class
+-> whenever we're loading a class based component it means we're creating an instance of a class.
+
+-> How do we recieve props in class based components - create constructor with super(props) and that constructor will receive props 
+-> super() calls the parent’s constructor → which sets up the object’s internal this.
+class Parent {
+  constructor(props) {
+    this.props = props;
+  }
+}
+
+class Child extends Parent {
+  constructor(props) {
+    super(props);  // ✅ call parent constructor
+    console.log(this.props); // { name: "Vijaya" }
+  }
+}
+
+const obj = new Child({ name: "Vijaya" });
+
+-> super () is equivalent to Parent.call(this, name);
+
+# componentDidMount in class based component
+-> gets called after our component is mounted on the DOM
+-> why do we use this or what is the use case?
+-> used for API calls (in functional component we use useEffect)
+-> why we use componentDidMount for API calls?
+-> to render component as fast as possible and fetch data and component re render the component
+
+# Creating state in class based component
+    -> earlier there was not a concept of hooks in class based component
+    -> we user special keyword reserved and we use it like this.state in a constructor
+    -> never update state variable directly -> this.state.count = this.state.count + 1 will not work - creates inconsistency in program
+    -> we do it with setState method by react this.setState({// this object will contain updated state of variable})
+-> in class based component we use this keyword
+
+# Lifecycle of Class based components - imp interview que
+-> How it is put up or loaded or mounted on the web page?
+    -> New instace of the class is created and first thing happens is a constructor is called and then render is called
+    -> constructor -> render -> componentDidMount
+    -> First parent constructor is called then parent render is called then child's constructor is called then child's render then child's componentDidMount will be called(if no further class component is present in child if present then their lifecycle will be called and then componentDidMount of child) then once child is rendered completely then componentDidMount is called
+-> React lifecycle methods diagram - https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+-> Has two phases - render(constructor and render is called) phase and commit phase(updates the DOM)
+-> First constructor is called then render is called after render "DOM is updated" then componentDidMount is called
+
+-> Parent.js
+<FirstChild/>
+<SecondChild/>
+
+-> In this case how will be the cycle?
+    Parent constructor
+    Parent render
+    First child contructor
+    First child render
+    Second child contuctor
+    Second child render
+    <DOM UPDATED - in a single batch>
+    First child componentDidMount
+    Second child componentDidMount
+    Parent componentDidMount
+-> here react batch render phase of all component in parents(first child and second child in our case) together since render phase is very fast(user reconciliation with virtual DOM) then commit happens(expensive operation than render that's why batching of render phase)
+-> batching of render phase for both children then batching of commit phase for both the children
+
+
+
 # Try out:
 -> debounce search
 -> pagination
