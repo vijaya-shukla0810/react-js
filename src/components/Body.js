@@ -2,6 +2,7 @@ import RestaurantCard from './RestaurantCard'
 import restaurants from '../utils/mockData'
 import { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
+import useOnlineStatus from '../utils/useOnlineStatus';
 import LoadingRestaurantsList from './LoadingRestaurantsList';
 
 const Body = () => {
@@ -33,6 +34,14 @@ const Body = () => {
     setListOfRes(json)
     setFilteredListOfRes(json)
   }
+
+  const onlineStatus = useOnlineStatus();
+
+  if(onlineStatus===false) return (
+    <h1>
+      Looks like you're offline! plis check your internet
+    </h1>
+  )
 
   const goToResMenu = () => {
     navigate('/restaurant/1234')

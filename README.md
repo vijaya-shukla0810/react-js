@@ -1,6 +1,7 @@
 # react js
 
 # parcel
+- It is a budler.
 - Dev Build
 - Local Server
 - HMR - Hot module replacement
@@ -177,7 +178,19 @@ const obj = new Child({ name: "Vijaya" });
 -> batching of render phase for both children then batching of commit phase for both the children
 
 
+# Single responsibility principle
+-> For resusable, testable and maintanable code.
+
+# Custom hooks
+-> like a custom utility function only
+
+# Optimization of our App - imp for interview
+-> Chunking
+-> Code splitting
+-> Dynamic Bundling
+-> Lazy loading / On demand loading / Dynamic import - we have a page for that initially the code of should not be there once we navigate to the page then only the code should be appended (not loading initially but loading it on demand) - lazy(callback) - named export given by react - read about it
 
 # Try out:
 -> debounce search
 -> pagination
+-> custom library and use in local project

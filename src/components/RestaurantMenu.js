@@ -1,16 +1,12 @@
-import {useState, useEffect} from "react";
-import restaurant from "../utils/mockData"
 import LoadingRestaurantsList from "./LoadingRestaurantsList";
 import { useParams } from "react-router-dom"
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
   const {resId} = useParams()
   console.log(resId)
 
-  useEffect(() => {
-    setResInfo(restaurant)
-  }, []);
+  const resInfo = useRestaurantMenu(resId);
 
   if(resInfo === null) return <LoadingRestaurantsList/>;
 
