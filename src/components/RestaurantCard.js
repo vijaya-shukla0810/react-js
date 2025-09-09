@@ -14,7 +14,7 @@ const RestaurantCard = (props) => {
   } = resData
 
   return (
-    <div className="res-card"
+    <div className="flex flex-col gap-2 p-2"
     onClick={props.onClick}
     style={{
       backgroundColor: "beige",
@@ -22,7 +22,7 @@ const RestaurantCard = (props) => {
     }}>
       <img
         src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/6/9/7a7eeb27-4319-4670-a64e-0f214d6c92e8_952468.JPG"
-        className="res-card-img"
+        className="w-[240] has-[80]"
         alt="res-img"
       ></img>
       <h3>{name}</h3>

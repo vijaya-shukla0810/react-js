@@ -60,9 +60,10 @@ const Body = () => {
   } else {
     return (
       <div className="body">
-        <div className="filter">
-          <div className="search">
+        <div className="flex">
+          <div className="m-4 flex gap-4">
             <input
+              className="border border-gray-500 rounded-sm p-1"
               type="search"
               placeholder="Search restaurant"
               value={searchInput}
@@ -73,16 +74,16 @@ const Body = () => {
                 setSearchInput(e.target.value)
               }}
             />
-            <button className="search-btn" onClick={searchRestaurants}>Search</button>
+            <button className="cursor-pointer hover:bg-gray-200 pl-2 pr-2 rounded-sm" onClick={searchRestaurants}>Search</button>
           </div>
           <button
-            className="filter-btn"
+            className="cursor-pointer"
             onClick={filterOutTopRatedRes}
           >
             Top rated restaurants
           </button>
         </div>
-        <div className="res-container">
+        <div className="flex flex-wrap gap-3">
           {
             !filteredListOfRes.length && searchInput.length ? (<div>No search results</div>):
             (filteredListOfRes.map(restaurant => {

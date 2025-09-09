@@ -190,6 +190,15 @@ const obj = new Child({ name: "Vijaya" });
 -> Dynamic Bundling
 -> Lazy loading / On demand loading / Dynamic import - we have a page for that initially the code of should not be there once we navigate to the page then only the code should be appended (not loading initially but loading it on demand) - lazy(callback) - named export given by react - read about it
 
+# CSS
+-> Like sass and scss we have
+    -> styled-components: https://styled-components.com/
+    -> Material UI - popular
+    -> Bootstrap
+    -> Chakra UI
+    -> Ant Design - popular
+    -> Tailwind
+
 # Try out:
 -> debounce search
 -> pagination
